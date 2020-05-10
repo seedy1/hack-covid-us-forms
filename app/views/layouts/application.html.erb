@@ -8,8 +8,34 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+  <%# A L E R T S %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %><DDp>
+<%# A L E R T S %>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Us Forms</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <%# <a class="nav-link active" href="#">Home</a> %>
+        <%= link_to "Home", root_path, class: 'nav-link active' %>
+        <%= link_to "About", welcome_about_path, class: 'nav-link active' %>
+        <%= link_to "Contact", welcome_contact_path, class: 'nav-link active' %>
+      </nav>
+    </div>
+  </header>
+
+
+
     <%= yield %>
+
+
+
+    <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    </div>
+  </footer>
   </body>
 </html>
