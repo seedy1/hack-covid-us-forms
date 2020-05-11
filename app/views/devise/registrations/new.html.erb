@@ -6,16 +6,21 @@
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.email_field :first_name, autofocus: true, autocomplete: "name" %>
+        <small id="emailHelp" class="form-text text-muted">Enter your name correctly as you cannot chnage it after creating an account.</small>
+
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.email_field :last_name, autocomplete: "name" %>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
   </div>
 
   <div class="field">
     <%= f.label :phone_number %><br />
     <%= f.email_field :phone_number%>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
   <div class="field">

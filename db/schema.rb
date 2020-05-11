@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_011727) do
+ActiveRecord::Schema.define(version: 2020_05_10_141110) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -36,4 +36,31 @@ ActiveRecord::Schema.define(version: 2020_05_10_011727) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "email", default: "", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_companies_on_category_id"
+  end
+
+  create_table "forms", force: :cascade do |t|
+    t.string "form_field_1"
+    t.string "form_field_2"
+    t.string "form_field_3"
+    t.integer "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_forms_on_company_id"
+  end
+
+  add_foreign_key "companies", "categories"
+  add_foreign_key "forms", "companies"
 end

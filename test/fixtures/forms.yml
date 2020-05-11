@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  form_field_1: MyString
+  form_field_2: MyString
+  form_field_3: MyString
+  company: one
+
+two:
+  form_field_1: MyString
+  form_field_2: MyString
+  form_field_3: MyString
+  company: two

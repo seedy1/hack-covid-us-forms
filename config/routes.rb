@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :forms
+  resources :companies
+  resources :categories
   devise_for :accounts
   root 'welcome#home'
   

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+
+
+<% @category.companies.each do |com| %>
+    <p>
+        <b>com:</b>
+        <%= com.name %>
+    </p>
+<% end %>
+
+
+<div class="row">
+
+    <% @category.companies.each do |company| %>
+    <div class="col-md-4">
+
+      <div class="card" style="color: blue;">
+      <%= image_tag("company.png", class: "card-img-top") %>
+  <div class="card-body">
+    <h4 class="card-title"><%= company.name %></h4>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= link_to 'See Forms', company %></li>
+  </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+</div>
+<%end%>
+</div>
