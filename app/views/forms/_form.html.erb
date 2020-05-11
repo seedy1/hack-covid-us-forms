@@ -1,35 +1,30 @@
 <%= form_with(model: form, local: true) do |form| %>
-  <% if form.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(form.errors.count, "error") %> prohibited this form from being saved:</h2>
 
-      <ul>
-        <% form.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :form_field_1 %>
-    <%= form.text_field :form_field_1 %>
+    <%= form.text_field :form_field_1, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :form_field_2 %>
-    <%= form.text_field :form_field_2 %>
+    <%= form.text_field :form_field_2, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :form_field_3 %>
-    <%= form.text_field :form_field_3 %>
+    <%= form.text_field :form_field_3, class: "form-control" %>
   </div>
 
-  <div class="field">
+   <div class="form-group">
     <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+    <%= form.collection_select :company_id, Company.all, :id, :name, class: "form-control" %>          
   </div>
+
+  <div class="form-group">
+  <%= form.label :files %>
+  <%= form.file_field :files, multiple: true, class: "form-control" %>
+ </div>
 
   <div class="actions">
     <%= form.submit %>

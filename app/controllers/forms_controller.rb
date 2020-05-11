@@ -69,6 +69,6 @@ class FormsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def form_params
-      params.require(:form).permit(:form_field_1, :form_field_2, :form_field_3, :company_id)
+      params.require(:form).permit(:form_field_1, :form_field_2, :form_field_3, :company_id, files:[])
     end
 end

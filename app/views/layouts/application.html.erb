@@ -7,37 +7,64 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://use.fontawesome.com/b0d3949d80.js"></script>
+
   </head>
   <body>
-  <%# A L E R T S %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %><DDp>
-<%# A L E R T S %>
+  
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
       <h3 class="masthead-brand">Us Forms</h3>
       <nav class="nav nav-masthead justify-content-center">
+      
         <%# <a class="nav-link active" href="#">Home</a> %>
         <%= link_to "Home", root_path, class: 'nav-link active' %>
         <%= link_to "About", welcome_about_path, class: 'nav-link active' %>
         <%= link_to "Contact", welcome_contact_path, class: 'nav-link active' %>
+                <% if account_signed_in? %>
         <%= link_to "Category", categories_path, class: 'nav-link' %>
         <%= link_to "Company", companies_path, class: 'nav-link' %>
         <%= link_to "Form", forms_path, class: 'nav-link' %>
+        <% end %>
+      
+        <% if account_signed_in? %>
+  <li class="nav-link">
+  <%= link_to('Logout', destroy_account_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li class="nav-link">
+  <%= link_to('Login', new_account_session_path) %>  
+  </li>
+<% end %>
+
+<% if account_signed_in? %>
+  <li class="nav-link">
+  <%= link_to('Edit Profile', edit_account_registration_path) %>
+  </li>
+<% else %>
+  <li class="nav-link">
+  <%= link_to('Sign Up', new_account_registration_path) %>
+  </li>
+<% end %>
       </nav>
     </div>
   </header>
+  <%# A L E R T S %>
+  <p class="notice" style="color: green;"><%= notice %></p>
+  <p class="alert" style="color: red;"><%= alert %><p>
+<%# A L E R T S %>
 
 
 
     <%= yield %>
 
-
-
+    <% if account_signed_in? %>
+    <strong>Singed in as: <%= current_account.email%> </strong>
+    <%end%>
     <footer class="mastfoot mt-auto">
     <div class="inner">
-      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>HackWeakEnd hack for <a href="#">COVID-19</a>, by <a href="#">Couz and Couz.</a>.</p>
     </div>
   </footer>
   </body>

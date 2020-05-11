@@ -20,5 +20,13 @@
   <%= @form.company_id %>
 </p>
 
+<ul>
+  <% @form.files.each do |file| %>
+    <li>
+      <%= image_tag file.preview(resize_to_limit: [100, 100]) %>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_form_path(@form) %> |
 <%= link_to 'Back', forms_path %>

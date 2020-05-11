@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
-
-
-<% @category.companies.each do |com| %>
-    <p>
-        <b>com:</b>
-        <%= com.name %>
-    </p>
-<% end %>
-
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Business Type</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    <tr>
+      <th scope="row"><%= @category.name %></th>
+      <td><%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %></td>
+    </tr>
+   
+  </tbody>
+</table>
 
 <div class="row">
 
