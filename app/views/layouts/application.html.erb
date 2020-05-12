@@ -59,10 +59,13 @@
 
     <%= yield %>
 
+    
+    <footer class="mastfoot mt-auto">
     <% if account_signed_in? %>
     <strong>Singed in as: <%= current_account.email%> </strong>
     <%end%>
-    <footer class="mastfoot mt-auto">
+    <hr/>
+    <br />
     <div class="inner">
       <p>HackWeakEnd hack for <a href="#">COVID-19</a>, by <a href="#">Couz and Couz.</a>.</p>
     </div>

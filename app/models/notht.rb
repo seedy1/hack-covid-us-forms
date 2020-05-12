@@ -1,0 +1,2 @@
+class Notht < ApplicationRecord
+end
